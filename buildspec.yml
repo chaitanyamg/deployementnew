@@ -8,14 +8,16 @@ phases:
       - aws --version
       - $(aws ecr get-login --region $AWS_DEFAULT_REGION --no-include-email)
       - REPOSITORY_URI=899488875890.dkr.ecr.ap-northeast-1.amazonaws.com/ecr-tokyo
+      - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
+      - IMAGE_TAG=build-$(echo $CODEBUILD_BUILD_ID | awk -F":" '{print $2}'
   build:
     commands:
       - docker build -t vamsi:latest .
-      - docker tag vamsi:latest 470727887694.dkr.ecr.us-east-1.amazonaws.com/chaitanya-demo:latest
+      - docker tag vamsi:latest 899488875890.dkr.ecr.ap-northeast-1.amazonaws.com/ecr-tokyo
   post_build:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker images...
-      - docker push 899488875890.dkr.ecr.ap-northeast-1.amazonaws.com/ecr-tokyo/chaitanya-demo:latest
+      - docker push 899488875890.dkr.ecr.ap-northeast-1.amazonaws.com/ecr-tokyo/ecr-tokyo/chaitanya-demo:latest
       - #curl https://www.oracle.com/webfolder/technetwork/tutorials/obe/fmw/wls/12c/03-DeployApps/files/benefits.war
       
