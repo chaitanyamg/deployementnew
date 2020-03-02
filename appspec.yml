@@ -2,11 +2,11 @@ version: 0.0
 os: linux
 hooks:
   BeforeInstall:
-    - location: scripts/install_dependencies
+    - location: scripts/pull_image
       timeout: 300
       runas: root
   AfterInstall:
-    - location: scripts/start_server
+    - location: scripts/run_image
       timeout: 3000
       runas: root
 
