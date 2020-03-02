@@ -1,2 +1,2 @@
 #!/bin/bash
-docker run --name vamsi123 -p 8081:80 -d 
+docker run --name vamsi123 -p 8081:80 -d 899488875890.dkr.ecr.ap-northeast-1.amazonaws.com/ecr-tokyo:build-f91b9c24-26cf-4985-8ce6-2473ce4071d8
