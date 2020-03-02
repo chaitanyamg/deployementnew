@@ -1,2 +1,2 @@
 #!/bin/bash
-docker run --name vamsi -p 8081:80 httpd
+docker run --name vamsi123 -p 8081:80 -d 
