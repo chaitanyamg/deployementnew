@@ -7,15 +7,15 @@ phases:
       - echo Logging in to Amazon ECR...
       - aws --version
       - $(aws ecr get-login --region $AWS_DEFAULT_REGION --no-include-email)
-      - REPOSITORY_URI=470727887694.dkr.ecr.us-east-1.amazonaws.com/chaitanya-demo
+      - REPOSITORY_URI=899488875890.dkr.ecr.ap-northeast-1.amazonaws.com/ecr-tokyo
   build:
     commands:
-      - docker build -t babu:latest .
-      - docker tag babu:latest 470727887694.dkr.ecr.us-east-1.amazonaws.com/chaitanya-demo:latest
+      - docker build -t vamsi:latest .
+      - docker tag vamsi:latest 470727887694.dkr.ecr.us-east-1.amazonaws.com/chaitanya-demo:latest
   post_build:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker images...
-      - docker push 470727887694.dkr.ecr.us-east-1.amazonaws.com/chaitanya-demo:latest
+      - docker push 899488875890.dkr.ecr.ap-northeast-1.amazonaws.com/ecr-tokyo/chaitanya-demo:latest
       - #curl https://www.oracle.com/webfolder/technetwork/tutorials/obe/fmw/wls/12c/03-DeployApps/files/benefits.war
       
