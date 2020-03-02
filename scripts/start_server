@@ -1,2 +1,2 @@
 #!/bin/bash
-service httpd start
+docker run --name vamsi -p 8081:80 httpd
